@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import co.hodlwallet.R;
 import co.hodlwallet.presenter.activities.camera.ScanQRActivity;
+import co.hodlwallet.presenter.activities.intro.IntroActivity;
 import co.hodlwallet.presenter.activities.util.ActivityUTILS;
 import co.hodlwallet.presenter.activities.util.BRActivity;
 import co.hodlwallet.presenter.customviews.BRDialogView;
@@ -72,7 +73,7 @@ public class LoginActivity extends BRActivity {
 
     private Button leftButton;
     private Button rightButton;
-
+    private Button deleteButton;
 
     public static LoginActivity getApp() {
         return app;
@@ -125,6 +126,7 @@ public class LoginActivity extends BRActivity {
 
         leftButton = (Button) findViewById(R.id.left_button);
         rightButton = (Button) findViewById(R.id.right_button);
+        deleteButton = (Button) findViewById(R.id.delete_button);
 
         // setUpOfflineButtons();
 
@@ -171,6 +173,18 @@ public class LoginActivity extends BRActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!BRAnimator.isClickAllowed()) return;
+                BreadActivity bApp = BreadActivity.getApp();
+                Intent intent = new Intent(app, SetPinActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+                if (bApp != null) bApp.finish();
             }
         });
 

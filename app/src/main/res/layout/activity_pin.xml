@@ -142,6 +142,23 @@
             app:customBFont="Electrolize-Regular.ttf"
             app:isBreadButton="false"
             />
+			
+        <co.hodlwallet.presenter.customviews.BRButton
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/WipeWallet.alertTitle"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:paddingBottom="0dp"
+            android:paddingTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/brkeyboard"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttons_layout"
+            app:customBFont="Electrolize-Regular.ttf"
+            app:isBreadButton="false"
+            />		
     </android.support.constraint.ConstraintLayout>
 
     <ImageView
